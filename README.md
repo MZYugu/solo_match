@@ -1,24 +1,71 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## テーブル設計
 
-Things you may want to cover:
+### users
 
-* Ruby version
+| Column | Type | Options |
+| --- | --- | --- |
+| user_name | string | null :false |
+| email | string | null :false, unique: true |
+| encrypted_password | string | null :false |
+| introduction | text |  |
+| birthday | date |null :false |
 
-* System dependencies
+#### Association
+- has_many :topics
+- has_many :messages
 
-* Configuration
+### venues
 
-* Database creation
+| Column | Type | Options |
+| --- | --- | --- |
+| venue_name | string | null :false |
+| prefecture_id | integer | null :false |
+| address | string | null :false |
+| link | string |  |
 
-* Database initialization
+#### Association
+- has_many :events
 
-* How to run the test suite
+### events
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column | Type | Options |
+| --- | --- | --- |
+| event_name | string | null :false |
+| opening_date | date | null :false |
+| last_date | date | null :false |
+| genre_id | integer | null: false |
+| link | string |  |
+| venue |references | null :false, foreign_key: true |
 
-* Deployment instructions
+#### Association
+- belongs_to :venue
+- has_many :topics
 
-* ...
+### topics
+
+| Column | Type | Options |
+| --- | --- | --- |
+| title | string | null: false |
+| category_id | integer | null: false |
+| top_text | text | null: false |
+| user | references | null: false |
+| event | references | null: false |
+
+#### Association
+- belongs_to :user
+- belongs_to :event
+- has_many :messages
+
+### messages
+
+| Column | Type | Options |
+| --- | --- | --- |
+| text | text | null: false |
+| user | references | null: false, foreign_key: true |
+| topic | references | null: false, foreign_key: true |
+
+#### Association
+- belongs_to :user
+- belongs_to :topic
