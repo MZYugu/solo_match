@@ -1,71 +1,51 @@
 # README
+アプリケーション名『Solo_Match』
 
-## テーブル設計
+# 概要
+同じイベントに参加するファン同士が交流するためのサービス
 
-### users
+# URL
+XXX（実装後に記載）
 
-| Column | Type | Options |
-| --- | --- | --- |
-| user_name | string | null :false |
-| email | string | null :false, unique: true |
-| encrypted_password | string | null :false |
-| introduction | text |  |
-| birthday | date |null :false |
+# テストアカウント
+XXX（実装後に記載）
+# 利用方法
+XXX（実装後に記載）
+# 開発背景
+SNSを見ていると、普段1人で趣味を楽しんでいる人もイベントに参加するとなれば会場付近で同じイベントに参加する人との交流や感想の共有を求めている。  
+汎用的なSNSで「イベント名」「作品名」などを検索することなく素早く仲間へアクセスをするために、イベント参加者をターゲットにしたウェブアプリを開発することにした。
 
-#### Association
-- has_many :topics
-- has_many :messages
+# 用件定義
+[用件定義したシート](https://docs.google.com/spreadsheets/d/14EgJxHWEPgLfPCoFmN1G1AwtuAlIEtF8n_0UjZtfS9Q/edit?usp=sharing)
 
-### venues
+# 実装した機能についての説明
+XXX（実装後に記載）
 
-| Column | Type | Options |
-| --- | --- | --- |
-| venue_name | string | null :false |
-| prefecture_id | integer | null :false |
-| address | string | null :false |
-| link | string |  |
+# 実装予定の機能
+### 検索機能の充実
+一覧ページで地域、イベントジャンルを絞り込んで表示する機能
+### 外部SNSへの共有機能
+自分が作成したtopicをSNSへ共有する機能
+### ユーザー年齢による機能の制限
+性質上イベント会場で直接交流する可能性が高い投稿へは、トラブルを防ぐために18歳以下にユーザーがメッセージを投稿できない制限
 
-#### Association
-- has_many :events
+# データベース設計
+![](soloER.png)
 
-### events
+# 画面遷移図
+![](screen_transition_diagram.png)
 
-| Column | Type | Options |
-| --- | --- | --- |
-| event_name | string | null :false |
-| opening_date | date | null :false |
-| last_date | date | null :false |
-| genre_id | integer | null: false |
-| link | string |  |
-| venue |references | null :false, foreign_key: true |
+# 開発環境
+ruby 2.6.5  
+Rails 6.0.6.1  
+Visual Studio Code
 
-#### Association
-- belongs_to :venue
-- has_many :topics
 
-### topics
+# ローカルでの操作方法
+% git clone https://github.com/MZYugu/solo_match  
+% cd solo-match  
+% bundle install  
+% yarn install
 
-| Column | Type | Options |
-| --- | --- | --- |
-| title | string | null: false |
-| category_id | integer | null: false |
-| top_text | text | null: false |
-| user | references | null: false |
-| event | references | null: false |
-
-#### Association
-- belongs_to :user
-- belongs_to :event
-- has_many :messages
-
-### messages
-
-| Column | Type | Options |
-| --- | --- | --- |
-| text | text | null: false |
-| user | references | null: false, foreign_key: true |
-| topic | references | null: false, foreign_key: true |
-
-#### Association
-- belongs_to :user
-- belongs_to :topic
+# 工夫したポイント
+XXXXXX（実装後に記載）
