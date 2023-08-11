@@ -51,5 +51,9 @@ class Prefecture < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
+<<<<<<< Updated upstream
   has_many :items
+=======
+  has_many :venues
+>>>>>>> Stashed changes
 end
