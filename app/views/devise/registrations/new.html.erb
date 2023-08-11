@@ -13,7 +13,7 @@
       <label class="form-text">ユーザーネーム</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :user_name, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
+    <%= f.text_field :user_name, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
@@ -39,6 +39,13 @@
   </div>
   
   <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">プロフィール文</label>
+    </div>
+    <%= f.text_area :introduction, class:"input-default", id:"introduction", placeholder:"はじめまして！よろしくお願いします" %>
+  </div>
+  <div class="form-group">
+
     <div class='form-text-wrap'>
       <label class="form-text">生年月日</label>
       <span class="indispensable">必須</span>
