@@ -1,4 +1,5 @@
 class Venue < ApplicationRecord
+  has_many :evnets
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
   
