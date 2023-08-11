@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  before_action :[:new, :edit]
   def index
   end
 
@@ -9,5 +10,12 @@ class VenuesController < ApplicationController
   end
 
   def edit
+  end
+
+  privete
+  def venue_params
+  end
+
+  def get_venue
   end
 end
