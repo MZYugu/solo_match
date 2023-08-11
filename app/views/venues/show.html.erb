@@ -1,2 +1,33 @@
-<h1>Venues#show</h1>
-<p>Find me in app/views/venues/show.html.erb</p>
+<%= render "shared/header" %>
+
+<div class="item-show">
+  <div class="item-box">
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">会場名</th>
+          <td class="detail-value"><%= @venue.venue_name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">地域</th>
+          <td class="detail-value"><%= @venue.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">住所</th>
+          <td class="detail-value"><%= @venue.prefecture.name %><%= @venue.address %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">会場HP</th>
+          <td class="detail-value"><%= @venue.link %></td>
+        </tr>
+      </tbody>
+    </table>
+
+      <% if  user_signed_in?  %>
+        <%= link_to "会場情報の編集", edit_venue_path(@venue.id), method: :get, class: "venue-btn" %>
+      <% end %>
+
+      <div class="sell-btn-contents">
+        <%=link_to 'もどる', venues_path, class:"back-venue-index" %>
+      </div>
+  </div>

@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header {
+  width: 100vw;
+  padding: 1vh 3vw;
+  display: flex;
+  background-color: #95b2dd;
+  color: #39464D;
+}
+
+.top_head_logo{
+  padding: 2vh 0;
+}
+
+.head_logo{
+  font-size: 32px;
+  font-family: 'RocknRoll One', sans-serif;
+  text-decoration: none;
+  color: #39464D;
+}
+
+.nav {
+  font-family: 'RocknRoll One', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0;
+}
+
+.lists-left {
+  font-size: 22px;
+  display: flex;
+  min-width: 200px;
+}
+
+.event-list {
+  text-decoration: none;
+  color: #39464D;
+  padding: 3px;
+  border-radius: 3px;
+  background-color: #f3f9f9;
+}
+
+.venue-list {
+  text-decoration: none;
+  color: #39464D;
+  padding: 3px;
+  border-radius: 3px;
+  background-color: #f3f9f9;
+}
+
+.lists-right {
+  font-size: 18px;
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+}
+
+
+.user-nickname {
+  text-decoration: none;
+  margin-right: 1vw;
+  color: #39464D;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #f3f9f9;
+}
+
+
+.logout {
+  text-decoration: none;
+  color: #39464D;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #f3f9f9;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #39464D;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #f3f9f9;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: #39464D;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #f3f9f9;
+}

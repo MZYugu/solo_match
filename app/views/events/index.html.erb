@@ -1,2 +1,41 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<%= render "shared/header"%>
+
+<div class='main'>
+
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      
+    </h2>
+    <p class='service-explain'>
+      FURIMAはだれでもかんたんに出品・購入できる
+    </p>
+    <p class='service-explain'>
+      フリマアプリです
+    </p>
+  </div>
+  
+
+  <div class='item-contents'>
+    <h2 class='title'>今週開催のイベント</h2>
+    <div class="subtitle" >
+      <h3 class='title'><%= Date.today %>〜<%= Date.today + 7 %></h3>
+    </div>
+    <ul class='item-lists'>
+
+        <li class='list'>
+          <%= link_to '#' do %>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                
+              </h3>
+              <div class='item-price'>
+                <span>99999999円<br>(税込み)</span>
+                <div class='star-btn'>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </li>
+
+    </ul>
+  </div>
