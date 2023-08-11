@@ -1,9 +1,9 @@
 class VenuesController < ApplicationController
-  before_action :get_venue: [:show, :edit, :update]
-  before_action :authenticate_user! except: [:index, :show]
+  before_action :get_venue, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @venues - Venue.all
+    @venues = Venue.all
   end
 
   def new
@@ -33,7 +33,7 @@ class VenuesController < ApplicationController
     end
   end
 
-  privete
+  private
   def venue_params
     params.require(:venue).permit(:venue_name, :prefecture_id, :address, :link)
   end
