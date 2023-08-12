@@ -1,0 +1,45 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to "Solo_Match", "/", class: "head_logo" %>
+  </header>
+
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">会場情報を入力</h2>
+    <%= form_with model: @venue, local: true do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <div class="new-items">
+        <div class="weight-bold-text">
+          会場名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :venue_name, class:"items-text", id:"item-name", placeholder:"会場名" %>
+        <div class="weight-bold-text">
+          会場住所（都道府県）
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            会場住所（都道府県以下）
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :address, class:"items-text", id:"item-info", placeholder:"〇〇市〇〇区〇〇町〇〇番地" %>
+        </div>
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            会場HP
+          </div>
+          <%= f.text_field :link, class:"items-text", id:"item-info" %>
+        </div>
+      </div>
+
+      <div class="sell-btn-contents">
+        <%= f.submit "編集する" ,class:"sell-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+    <% end %>
+  </div>
+  
+</div>

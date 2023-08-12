@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  root to: "events#index"
+  devise_for :users
+  root to: "pages#home"
+  resources :venues, only: [:index, :new, :create, :show, :edit] do
+    resources :events,only: [:index, :new, :create, :show, :edit]
+  end
 end

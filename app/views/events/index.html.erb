@@ -1,2 +1,29 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<%= render "shared/header"%>
+
+<div class='main'>
+
+  <div class='event-contents'>
+    <h2 class='title'>開催予定のイベント</h2>
+    <div class="subtitle" >
+      <h3 class='title'><%= Date.today %>〜<%= Date.today + 7 %></h3>
+    </div>
+    <ul class='event-lists'>
+      <% @events.each do |event| %>
+      <% if @venue.id == event.venue_id %>
+        <ul class='list'>
+          <%= link_to venue_event_path(event.id, event.venue.id) do %>
+              <div class='event-info'>
+                <h3 class='event-name'>
+                  <%= event.event_name %>
+                </h3>
+              <div class='event-data'>
+                <span><%= event.genre.name %></span>
+                <span><%= event.openig_date %><% unless event.openig_date == event.last_date %>〜<%= event.last_date %></span><% end %></span>
+              </div>
+            </div>
+          <% end %>
+        </ul>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>

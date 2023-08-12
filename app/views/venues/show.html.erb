@@ -1,0 +1,37 @@
+<%= render "shared/header" %>
+
+<div class="item-show">
+  <div class="item-box">
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">会場名</th>
+          <td class="detail-value"><%= @venue.venue_name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">地域</th>
+          <td class="detail-value"><%= @venue.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">住所</th>
+          <td class="detail-value"><%= @venue.prefecture.name %><%= @venue.address %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">会場HP</th>
+          <td class="detail-value"><%= link_to @venue.link %></td>
+        </tr>
+      </tbody>
+    </table>
+
+  <div class="venue-btn-box">
+      <% if  user_signed_in?  %>
+        <%= link_to "会場情報の編集", edit_venue_path(@venue.id), method: :get, class: "venue-btn" %>
+        <%= link_to "イベントの登録", new_venue_event_path(@venue.id), method: :get, class: "venue-btn" %>
+      <% end %>
+
+  </div>
+
+      <div class="sell-btn-contents">
+        <%=link_to 'もどる', venues_path, class:"back-venue-index" %>
+      </div>
+  </div>

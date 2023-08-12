@@ -1,0 +1,30 @@
+<%= render "shared/header"%>
+
+<div class='main'>
+
+
+  <div class='venue-contents'>
+    <h2 class='title'>今週イベント開催の会場</h2>
+    <div class="subtitle" >
+    <h3 class='title'><%= Date.today %>〜<%= Date.today + 7 %></h3>
+    </div>
+
+    
+    <ul class='venue-lists'>
+      <% @venues.each do |venue| %>
+        <ul class='list'>
+          <%= link_to venue_path(venue.id) do %>
+              <div class='venue-info'>
+                <h3 class='vnue-name'>
+                  <%= venue.venue_name %>
+                </h3>
+              <div class='venue-prefecture'>
+                <span><%= venue.prefecture.name %></span>
+              </div>
+            </div>
+          <% end %>
+        </ul>
+      <% end %>
+
+    </ul>
+  </div>
