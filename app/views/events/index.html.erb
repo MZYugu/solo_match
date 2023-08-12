@@ -2,40 +2,28 @@
 
 <div class='main'>
 
-  <div class='title-contents'>
-    <h2 class='service-title'>
-      
-    </h2>
-    <p class='service-explain'>
-      FURIMAはだれでもかんたんに出品・購入できる
-    </p>
-    <p class='service-explain'>
-      フリマアプリです
-    </p>
-  </div>
-  
-
-  <div class='item-contents'>
-    <h2 class='title'>今週開催のイベント</h2>
+  <div class='event-contents'>
+    <h2 class='title'>開催予定のイベント</h2>
     <div class="subtitle" >
       <h3 class='title'><%= Date.today %>〜<%= Date.today + 7 %></h3>
     </div>
-    <ul class='item-lists'>
-
-        <li class='list'>
-          <%= link_to '#' do %>
-            <div class='item-info'>
-              <h3 class='item-name'>
-                
-              </h3>
-              <div class='item-price'>
-                <span>99999999円<br>(税込み)</span>
-                <div class='star-btn'>
-                </div>
+    <ul class='event-lists'>
+      <% @events.each do |event| %>
+      <% if @venue.id == event.venue_id %>
+        <ul class='list'>
+          <%= link_to venue_event_path(event.id, event.venue.id) do %>
+              <div class='event-info'>
+                <h3 class='event-name'>
+                  <%= event.event_name %>
+                </h3>
+              <div class='event-data'>
+                <span><%= event.genre.name %></span>
+                <span><%= event.openig_date %><% unless event.openig_date == event.last_date %>〜<%= event.last_date %></span><% end %></span>
               </div>
             </div>
           <% end %>
-        </li>
-
+        </ul>
+      <% end %>
+      <% end %>
     </ul>
   </div>

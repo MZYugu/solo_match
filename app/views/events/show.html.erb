@@ -1,0 +1,52 @@
+<%= render "shared/header" %>
+
+<div class="item-show">
+  <div class="item-box">
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">イベント名</th>
+          <td class="detail-value"><%= @event.event_name %></td>
+        </tr>
+        <% if @event.openig_date == @event.last_date %>
+          <tr>
+            <th class="detail-item">開催日</th>
+            <td class="detail-value"><%= @event.openig_date %></td>
+          </tr>
+        <% else %>
+          <tr>
+            <th class="detail-item">開始日</th>
+            <td class="detail-value"><%= @event.openig_date %></td>
+          </tr>
+          <tr>
+            <th class="detail-item">最終日</th>
+            <td class="detail-value"><%= @event.last_date %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <th class="detail-item">ジャンル</th>
+          <td class="detail-value"><%= @event.genre.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">会場</th>
+          <td class="detail-value"><%= @venue.venue_name %>(<%= @venue.prefecture.name %>)</td>
+        </tr>
+        <tr>
+          <th class="detail-item">イベントHP</th>
+          <td class="detail-value"><%= link_to @event.link %></td>
+        </tr>
+      </tbody>
+    </table>
+
+  <div class="venue-btn-box">
+      <% if  user_signed_in?  %>
+        <%= link_to "イベント情報の編集", edit_venue_path(@venue.id), method: :get, class: "venue-btn" %>
+        <%= link_to "トピックの作成", "#", method: :get, class: "venue-btn" %>
+      <% end %>
+
+  </div>
+
+      <div class="sell-btn-contents">
+        <%=link_to 'もどる', venues_path, class:"back-venue-index" %>
+      </div>
+  </div>
