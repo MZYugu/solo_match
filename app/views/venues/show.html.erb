@@ -23,9 +23,13 @@
       </tbody>
     </table>
 
+  <div class="venue-btn-box">
       <% if  user_signed_in?  %>
         <%= link_to "会場情報の編集", edit_venue_path(@venue.id), method: :get, class: "venue-btn" %>
+        <%= link_to "イベントの登録", new_venue_event_path(@venue.id), method: :get, class: "venue-btn" %>
       <% end %>
+
+  </div>
 
       <div class="sell-btn-contents">
         <%=link_to 'もどる', venues_path, class:"back-venue-index" %>
