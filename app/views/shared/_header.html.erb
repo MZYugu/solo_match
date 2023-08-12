@@ -5,7 +5,7 @@
   <div class='nav'>
     <ul class='lists-left'>
       <ul><%= link_to 'イベントを探す', "#", class: "event-list" %></ul>
-      <ul><%= link_to '会場を見る', "#", class: "venue-list" %></ul>
+      <ul><%= link_to '会場を見る', venues_path, class: "venue-list" %></ul>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
