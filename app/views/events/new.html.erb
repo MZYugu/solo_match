@@ -1,0 +1,74 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to "Solo_Match", "/", class: "head_logo" %>
+  </header>
+
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">イベントの情報を入力</h2>
+    <%= form_with(model: [@venue, @event], local: true) do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+      <div class="new-items">
+
+
+    <div class="new-items">
+      <div class="weight-bold-text">
+        イベント名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :event_name, class:"items-text", id:"item-name", placeholder:"イベント名" %>
+
+      <div class='input-birth-wrap'>
+        <div class='form-text-wrap'>
+          <label class="form-text">開始日</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= raw sprintf(
+                    f.date_select(
+                      :openig_date,
+                      class:'select-birth',
+                      id:"birth-date",
+                      use_month_numbers: true,
+                      prompt:'--',
+                      start_year: Time.now.year,
+                      date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      </div>
+      <div class='input-birth-wrap'>
+        <div class='form-text-wrap'>
+          <label class="form-text">終了日</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= raw sprintf(
+                    f.date_select(
+                      :last_date,
+                      class:'select-birth',
+                      id:"birth-date",
+                      use_month_numbers: true,
+                      prompt:'--',
+                      start_year: Time.now.year,
+                      date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      </div>
+      <div class="form">
+        <div class="weight-bold-text">
+          ジャンル
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="weight-bold-text">
+        イベントHP
+      </div>
+      <%= f.text_field :link, class:"items-text", id:"item-info" %>
+  </div>
+
+    <div class="sell-btn-contents">
+      <%= f.submit "イベント登録する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  </div>
+  <% end %>
+
+</div>
